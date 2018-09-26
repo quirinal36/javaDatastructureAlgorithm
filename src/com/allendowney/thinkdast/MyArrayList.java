@@ -48,15 +48,8 @@ public class MyArrayList<T> implements List<T> {
 		// 만약 array.length 가 size 보다 작거나 같다면
 		// array.length 의 2배 크기의 배열을 새로 만들어야한다.
 		// 그 뒤에 element 를 추가한다.
-		if(size >= array.length) {
-			@SuppressWarnings("unchecked")
-			T[] bigger = (T[])new Object[array.length * 2];
-			System.arraycopy(array, 0, bigger, 0, array.length);
-			array = bigger;
-		}
-		array[size++] = element;
 		
-		return true;
+		return false;
 	}
 
 	@Override
@@ -123,11 +116,7 @@ public class MyArrayList<T> implements List<T> {
 	@Override
 	public int indexOf(Object target) {
 		//TODO: equals(a,b) 함수를 사용하여 target 의 위치 index 를 가져오자
-		for(int i=0; i<this.size; i++) {
-			if(equals(target, this.array[i])) {
-				return i;
-			}
-		}
+		
 		return -1;
 	}
 
@@ -190,12 +179,8 @@ public class MyArrayList<T> implements List<T> {
 	public boolean remove(Object obj) {
 		// TODO: obj 의 index 를 찾아내 remove(int index) 메소드를 사용하여 삭제한다.
 		// 만일 찾지 못하면 false 를 return 하자.
-		int index = indexOf(obj);
-		if (index == -1) {
-			return false;
-		}
-		remove(index);
-		return true;
+		
+		return false;
 	}
 
 	@Override
@@ -227,9 +212,8 @@ public class MyArrayList<T> implements List<T> {
 		//TODO: index 번째 element 를 삭제하자.
 		//사실 삭제작업은 필요 없다. index 번째에 다른값이 들어 가기만 하면 된다.
 		//return : 원래 index 번째에 있던 element
-		T old = get(index);
-		this.array[index] = element;
-		return old;
+		
+		return null;
 	}
 
 	@Override
